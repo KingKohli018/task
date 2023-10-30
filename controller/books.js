@@ -50,7 +50,7 @@ exports.updatebooks = async (req, res) => {
   try {
     const { title, author, summary } = req.body;
 
-    const bookfind = await bookmodel.findOne({ title: title });
+    const bookfind = await bookmodel.findById( req.params.bookId);
 
     if (!bookfind) {
       res.send({ status: true, message: "book not found" });
